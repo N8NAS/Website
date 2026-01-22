@@ -1,0 +1,133 @@
+/* CONTAINER UTAMA */
+.hero {
+  position: relative;
+  height: 85vh; /* Menggunakan 85% tinggi layar */
+  width: 100%;
+  color: white;
+  background-color: #141414; /* Warna cadangan jika gambar gagal load */
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+/* GAMBAR BACKGROUND */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Pastikan gambar memenuhi area tanpa gepeng */
+}
+
+/* OVERLAY (Supaya teks terbaca jelas di atas gambar) */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right, 
+    rgba(0,0,0,0.8) 0%, 
+    rgba(0,0,0,0.5) 40%, 
+    transparent 100%
+  );
+}
+
+/* KONTEN TEKS (JUDUL, DLL) */
+.hero-content {
+  position: absolute;
+  top: 35%; /* Posisi vertikal yang pas */
+  left: 4%; /* Rata kiri sejajar dengan logo navbar */
+  max-width: 500px; /* Batasi lebar teks agar rapi */
+  z-index: 10;
+}
+
+.hero-title {
+  font-size: 4rem; /* Ukuran font besar untuk judul */
+  font-weight: 800;
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+
+/* META DATA (Tahun, Umur, dll) */
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #d1d5db;
+}
+
+.rating-match { color: #46d369; font-weight: bold; } /* Warna hijau match */
+.age-box { 
+  border: 1px solid #d1d5db; 
+  padding: 2px 6px; 
+  font-size: 0.9rem; 
+}
+.genre { font-style: italic; font-size: 0.9rem; }
+
+/* DESKRIPSI */
+.hero-desc {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  max-width: 600px;
+}
+
+/* TOMBOL */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  border: none;
+  padding: 12px 30px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s;
+}
+
+/* Tombol Play Merah (Sesuai gambar referensi kamu) */
+.btn-play {
+  background-color: #e50914; /* Merah Netflix */
+  color: white;
+}
+.btn-play:hover { background-color: #b20710; }
+
+/* Tombol More Info Transparan */
+.btn-info {
+  background-color: rgba(109, 109, 110, 0.7);
+  color: white;
+}
+.btn-info:hover { background-color: rgba(109, 109, 110, 0.4); }
+
+/* FADE BAWAH (GRADASI KE HITAM) */
+.hero-fade-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(
+    180deg, 
+    transparent, 
+    rgba(20, 20, 20, 0.61), 
+    #000
+  );
+  z-index: 2;
+}
