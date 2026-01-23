@@ -1,12 +1,24 @@
 /* CONTAINER UTAMA */
 .hero {
   position: relative;
-  height: 85vh; /* Menggunakan 85% tinggi layar */
+  height: 100vh;           /* Full layar */
   width: 100%;
   color: white;
-  background-color: #141414; /* Warna cadangan jika gambar gagal load */
+  background-color: #141414;
+  
+  /* --- PERBAIKAN POSISI (AGAR RATA KIRI) --- */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Secara Vertikal tetap di tengah */
+  
+  align-items: flex-start; /* Secara Horizontal: PAKSA KE KIRI */
+  padding-left: 4%;        /* Jarak dari kiri 4% (Agar LURUS dengan Logo SANFLIX) */
+  
+  padding-top: 0;          
+  padding-bottom: 100px;
+  
+  box-sizing: border-box;
   overflow: hidden;
-  margin-bottom: 0;
 }
 
 /* GAMBAR BACKGROUND */
@@ -22,66 +34,66 @@
 .hero-bg img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Pastikan gambar memenuhi area tanpa gepeng */
+  object-fit: cover;
+  object-position: center top; /* Fokus gambar sedikit ke atas */
 }
 
-/* OVERLAY (Supaya teks terbaca jelas di atas gambar) */
+/* OVERLAY */
 .hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  /* Gradasi lebih gelap di kiri agar teks lebih terbaca */
   background: linear-gradient(
     to right, 
     rgba(0,0,0,0.8) 0%, 
     rgba(0,0,0,0.5) 40%, 
     transparent 100%
   );
+  z-index: 1;
 }
 
-/* KONTEN TEKS (JUDUL, DLL) */
+/* KONTEN TEKS */
 .hero-content {
-  position: absolute;
-  top: 35%; /* Posisi vertikal yang pas */
-  left: 4%; /* Rata kiri sejajar dengan logo navbar */
-  max-width: 500px; /* Batasi lebar teks agar rapi */
+  position: relative;
   z-index: 10;
+  
+  /* --- HAPUS PADDING DI SINI --- */
+  padding-left: 0;       /* Kita sudah atur di .hero container, jadi di sini 0 saja */
+  max-width: 550px;      /* Batasi lebar teks agar tidak terlalu panjang ke kanan */
+  margin-top: 20px;
 }
 
 .hero-title {
-  font-size: 4rem; /* Ukuran font besar untuk judul */
+  font-size: 60px;
   font-weight: 800;
-  margin-bottom: 10px;
+  margin: 0 0 15px 0;
   line-height: 1.1;
+  text-transform: uppercase;
 }
 
-/* META DATA (Tahun, Umur, dll) */
+/* META DATA */
 .hero-meta {
   display: flex;
   align-items: center;
   gap: 15px;
   margin-bottom: 20px;
+  font-weight: bold;
+  color: #ccc;
   font-size: 1.1rem;
-  font-weight: 600;
-  color: #d1d5db;
 }
 
-.rating-match { color: #46d369; font-weight: bold; } /* Warna hijau match */
-.age-box { 
-  border: 1px solid #d1d5db; 
-  padding: 2px 6px; 
-  font-size: 0.9rem; 
-}
-.genre { font-style: italic; font-size: 0.9rem; }
+.match-score { color: #46d369; }
+.age-rating { border: 1px solid #ccc; padding: 0 6px; font-size: 0.9rem; }
 
 /* DESKRIPSI */
 .hero-desc {
   font-size: 1.2rem;
-  line-height: 1.4;
+  line-height: 1.5;
   margin-bottom: 25px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-  max-width: 600px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
 }
 
 /* TOMBOL */
@@ -92,42 +104,29 @@
 
 .btn {
   border: none;
-  padding: 12px 30px;
+  padding: 10px 25px; /* Sedikit dikecilkan agar elegan */
   border-radius: 4px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 10px;
-  transition: all 0.2s;
+  transition: transform 0.2s;
 }
 
-/* Tombol Play Merah (Sesuai gambar referensi kamu) */
-.btn-play {
-  background-color: #e50914; /* Merah Netflix */
-  color: white;
-}
-.btn-play:hover { background-color: #b20710; }
+.btn:hover { transform: scale(1.05); }
 
-/* Tombol More Info Transparan */
-.btn-info {
-  background-color: rgba(109, 109, 110, 0.7);
-  color: white;
-}
-.btn-info:hover { background-color: rgba(109, 109, 110, 0.4); }
+.btn-play { background-color: white; color: black; } /* Tombol Play Netflix biasanya putih */
+.btn-info { background-color: rgba(109, 109, 110, 0.7); color: white; }
 
-/* FADE BAWAH (GRADASI KE HITAM) */
+/* FADE BAWAH */
 .hero-fade-bottom {
   position: absolute;
   bottom: 0;
+  left: 0;
   width: 100%;
-  height: 150px;
-  background: linear-gradient(
-    180deg, 
-    transparent, 
-    rgba(20, 20, 20, 0.61), 
-    #000
-  );
+  height: 250px;
+  background: linear-gradient(180deg, transparent, rgba(20, 20, 20, 0.8), #141414);
   z-index: 2;
 }
