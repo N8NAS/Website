@@ -1,0 +1,113 @@
+/* SETTING HALAMAN UTAMA */
+.tv-page {
+  background-color: #141414; /* Warna Hitam Netflix */
+  min-height: 100vh;
+  width: 100%;
+  color: white;
+  padding-top: 80px; /* Memberi ruang agar tidak tertutup Navbar */
+  box-sizing: border-box;
+}
+
+/* CONTAINER PEMBUNGKUS (Agar lurus dengan layout Home Anda) */
+.tv-container {
+  padding-left: 150px; 
+  padding-right: 150px; 
+  padding-bottom: 50px;
+}
+
+/* HEADER STYLE */
+.tv-header {
+  margin-bottom: 30px;
+  text-align: center; /* Memaksa teks agar mulai dari kiri, bukan tengah */
+  width: 100%;      /* Memastikan header mengambil lebar penuh */
+  display: block;
+}
+
+.tv-header h1 {
+  font-size: 3rem; /* Ukuran Besar */
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.tv-header p {
+  font-size: 1.2rem;
+  color: #a3a3a3; /* Warna abu-abu seperti di gambar */
+  margin: 0;
+  font-weight: 500;
+}
+
+/* GRID LAYOUT (Agar kartu berjejer rapi) */
+.tv-grid {
+  display: grid;
+  /* Membuat kolom otomatis: minimal lebar 200px, max seisi layar */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px; /* Jarak antar kartu */
+}
+
+/* KARTU TV SHOW */
+.tv-card {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  aspect-ratio: 2 / 3; /* Memaksa bentuk kotak memanjang (Portrait) */
+}
+
+/* Efek Hover (Membesar sedikit saat ditunjuk mouse) */
+.tv-card:hover {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.tv-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* BADGE MERAH "TV" DI POJOK KANAN */
+.tv-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #E50914; /* Merah Netflix */
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  z-index: 5;
+}
+
+/* OVERLAY JUDUL (Muncul saat hover atau tetap di bawah - Opsional) */
+.tv-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  opacity: 0; /* Tersembunyi default */
+  transition: opacity 0.3s;
+}
+
+.tv-card:hover .tv-card-overlay {
+  opacity: 1; /* Muncul saat hover */
+}
+
+/* --- RESPONSIF (HP) --- */
+/* Di layar kecil, kita hilangkan padding 150px agar tidak sempit */
+@media (max-width: 768px) {
+  .tv-container {
+    padding-left: 150px; /* Jarak dari kiri layar */
+    padding-right: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .tv-header h1 {
+    font-size: 2rem;
+  }
+}
