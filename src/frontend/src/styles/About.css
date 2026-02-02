@@ -1,0 +1,167 @@
+/* STRUKTUR DASAR */
+.about-page {
+  background-color: #141414;
+  min-height: 100vh;
+  width: 100%;
+  color: white;
+  padding-top: 100px; /* Jarak dari atas (Navbar) */
+  box-sizing: border-box;
+  
+  /* Agar Flexbox bisa dipakai untuk menengahkan vertikal jika konten sedikit */
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+/* CONTAINER UTAMA (REVISI: Hapus padding kiri, ganti Margin Auto) */
+.about-container {
+  width: 100%;
+  max-width: 1000px; /* Batasi lebar agar teks enak dibaca di tengah */
+  margin: 0 auto;    /* FORMULA AJAIB: Ini bikin kotak otomatis di tengah layar */
+  padding: 0 20px;   /* Padding kiri kanan standar untuk HP */
+  text-align: center; /* Memaksa semua teks di dalamnya rata tengah */
+}
+
+/* HEADER */
+.about-header {
+  margin-bottom: 60px;
+}
+
+.about-header h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #3b82f6; 
+  text-transform: uppercase;
+}
+
+.about-header .tagline {
+  font-size: 1.3rem;
+  color: #e5e5e5;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto; /* Tengahkan teks paragraf */
+}
+
+/* STATS SECTION (Angka-angka) */
+.about-stats {
+  display: flex;
+  justify-content: center; /* KUNCI: Bikin item berjejer di TENGAH */
+  gap: 60px; /* Jarak antar angka */
+  margin-bottom: 80px;
+  flex-wrap: wrap; /* Agar turun ke bawah kalau di HP */
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h2 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+}
+
+.stat-item span {
+  color: #757575;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 5px;
+}
+
+/* SECTION TITLE (Why Choose Us?) */
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  display: inline-block; /* Agar border bottom pas dengan teks */
+  border-bottom: 3px solid #3b82f6; /* Ganti garis samping jadi garis bawah */
+  padding-bottom: 10px;
+}
+
+/* GRID FEATURES */
+.features-grid {
+  display: grid;
+  /* Kolom otomatis yang rapi di tengah */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 30px;
+  margin-bottom: 80px;
+  text-align: left; /* Teks di dalam kartu tetap rata kiri agar rapi */
+}
+
+.feature-card {
+  background-color: #1f1f1f;
+  padding: 30px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  
+  /* Agar kartu terlihat rapi */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Icon di tengah */
+  text-align: center;  /* Teks di tengah */
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  background-color: #262626;
+}
+
+.feature-card .icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #3b82f6; /* Kasih warna merah biar icon menonjol */
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #b3b3b3;
+  line-height: 1.6;
+}
+
+/* Call To Action (Tombol Bawah) */
+.about-cta {
+  margin-bottom: 50px;
+}
+
+.about-cta p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.cta-button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 15px 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cta-button:hover {
+  background-color: #3b82f6;
+  transform: scale(1.05);
+}
+
+/* RESPONSIF HP */
+@media (max-width: 768px) {
+  .about-stats {
+    gap: 30px;
+  }
+  
+  .stat-item h2 {
+    font-size: 2.5rem;
+  }
+}

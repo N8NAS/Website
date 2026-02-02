@@ -1,0 +1,112 @@
+/* SETTING HALAMAN UTAMA */
+.movies-page {
+  background-color: #141414; /* Warna Hitam Netflix */
+  min-height: 100vh;
+  width: 100%;
+  color: white;
+  padding-top: 80px; /* Memberi ruang agar tidak tertutup Navbar */
+  box-sizing: border-box;
+}
+
+/* CONTAINER PEMBUNGKUS (Sama persis dengan TV Container) */
+.movies-container {
+  padding-left: 150px; 
+  padding-right: 150px; 
+  padding-bottom: 50px;
+}
+
+/* HEADER STYLE */
+.movies-header {
+  margin-bottom: 30px;
+  text-align: center; /* Mengikuti style TV Shows Anda */
+  width: 100%;       
+  display: block;
+}
+
+.movies-header h1 {
+  font-size: 3rem; /* Ukuran Besar */
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.movies-header p {
+  font-size: 1.2rem;
+  color: #a3a3a3; /* Warna abu-abu */
+  margin: 0;
+  font-weight: 500;
+}
+
+/* GRID LAYOUT */
+.movies-grid {
+  display: grid;
+  /* Membuat kolom otomatis: minimal lebar 200px */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px; /* Jarak antar kartu */
+}
+
+/* KARTU MOVIE */
+.movie-card {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  aspect-ratio: 2 / 3; /* Kotak memanjang (Portrait) */
+}
+
+/* Efek Hover */
+.movie-card:hover {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.movie-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* BADGE (Bisa diganti warnanya jika mau beda, misal biru, tapi ini disamakan merah) */
+.movie-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #E50914; /* Merah Netflix */
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  z-index: 5;
+}
+
+/* OVERLAY JUDUL */
+.movie-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  opacity: 0; 
+  transition: opacity 0.3s;
+}
+
+.movie-card:hover .movie-card-overlay {
+  opacity: 1;
+}
+
+/* --- RESPONSIF (HP) --- */
+@media (max-width: 768px) {
+  .movies-container {
+    padding-left: 150px; /* Mengikuti settingan TV Shows Anda */
+    padding-right: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .movies-header h1 {
+    font-size: 2rem;
+  }
+}
