@@ -24,7 +24,6 @@
   align-items: center;
   flex: 1;
   height: 100%;
-
 }
 
 .logo {
@@ -33,10 +32,8 @@
   font-weight: 800;
   cursor: pointer;
   text-transform: uppercase;
-
-  /* SOLUSI: Reset Margin & Atur Line Height */
-  line-height: 1.5;   /* Memberi ruang vertikal agar "kepala" huruf tidak terpotong */
-  display: flex;      /* Membantu render teks agar presisi di tengah */
+  line-height: 1.5;
+  display: flex;
   align-items: center;
 }
 
@@ -50,24 +47,20 @@
 }
 
 .navbar-links {
-  position: absolute;      /* Lepas dari aliran flexbox */
-  left: 50%;               /* Geser ke tengah 50% layar */
-  transform: translateX(-50%); /* Geser balik 50% dari lebarnya sendiri agar pas di tengah */
-  
-  display: flex;           /* Agar link berjejer ke samping */
-  gap: 30px;               /* Jarak antar teks menu */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 30px;
   z-index: 1;
 }
-
 
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 20px; /* Jarak antara Search dan Profile */
-  
-  /* Agar berada di paling kanan */
+  gap: 20px;
   margin-left: auto; 
-  z-index: 2; /* Agar di atas layer absolute tengah */
+  z-index: 2;
 }
 
 .search-icon {
@@ -85,34 +78,35 @@
 .profile-img {
   width: 32px;
   height: 32px;
-  border-radius: 4px; /* Sudut sedikit melengkung khas Netflix */
+  border-radius: 4px;
   object-fit: cover;
 }
 
 .profile-menu {
-  position: relative; /* Penting agar dropdown muncul tepat di bawahnya */
+  position: relative; 
   cursor: pointer;
-  padding: 5px 0; /* Menambah area hover agar tidak gampang menutup */
+  /* padding: 5px 0; -> Tidak perlu padding hover lagi */
+  display: flex;    /* Tambahan agar wrapper pas dengan gambar */
+  align-items: center;
 }
+
 .dropdown-content {
-  display: none; /* Default sembunyi */
+  /* HAPUS: display: none; -> Biarkan React yang mengatur tampil/hilang */
   
   position: absolute;
-  top: 100%; /* Muncul persis di bawah gambar */
-  right: 0;  /* Rata kanan dengan gambar */
+  top: 100%; 
+  right: 0;  
   
-  background-color: rgba(0, 0, 0, 0.9); /* Hitam transparan */
+  background-color: rgba(0, 0, 0, 0.95); /* Sedikit lebih gelap agar tulisan jelas */
   border: 1px solid #333;
   width: 180px;
   padding: 10px 0;
   border-radius: 4px;
-  margin-top: 10px; /* Jarak sedikit dari gambar */
+  margin-top: 10px;
+  z-index: 100; /* Pastikan dia muncul di atas elemen lain */
 }
 
-/* Logika Hover: Saat .profile-menu di-hover, tampilkan .dropdown-content */
-.profile-menu:hover .dropdown-content {
-  display: block;
-}
+/* HAPUS BAGIAN INI: .profile-menu:hover .dropdown-content */
 
 /* Item di dalam Dropdown */
 .dropdown-content a {
@@ -126,7 +120,7 @@
 
 .dropdown-content a:hover {
   color: white;
-  background-color: rgba(255, 255, 255, 0.1); /* Efek highlight saat hover */
+  background-color: rgba(255, 255, 255, 0.1); 
   text-decoration: underline;
 }
 
@@ -140,7 +134,7 @@
 .navbar-links a {
   text-decoration: none;
   color: #b3b3b3;
-  margin-right: 0; /* Reset margin right karena sudah pakai gap */
+  margin-right: 0; 
   transition: color 0.3s;
   font-size: 1rem;
 }
@@ -148,8 +142,84 @@
 .navbar-links a:hover {
   color: #e5e5e5;
 }
+
 .navbar-links a.active,
 .navbar-links a.active-link {
   color: #ffffff;
   font-weight: bold;
+}
+
+
+/* --- MASUKKAN KODE BARU INI --- */
+
+/* Wrapper utama (pengganti .search-icon lama) */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent; /* Default tanpa border */
+  padding: 5px;
+  transition: all 0.3s ease;     /* Animasi transisi background/border */
+  margin-right: 10px;            /* Jarak sedikit ke ikon profil */
+}
+
+/* KONDISI SAAT SEARCH DIBUKA (ACTIVE) */
+.search-box.active {
+  background-color: rgba(0, 0, 0, 0.75); /* Background hitam transparan */
+  border: 1px solid white;               /* Border putih (Sesuai Gambar) */
+  padding: 5px 10px;
+}
+
+/* Tombol Kaca Pembesar */
+.search-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  outline: none; /* Hilangkan garis biru browser */
+}
+
+/* Input Field (Tempat ketik) */
+.search-input {
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  font-size: 14px;
+  
+  /* Logika Animasi: Mulai dari lebar 0 */
+  width: 0; 
+  opacity: 0;
+  transition: width 0.4s ease, opacity 0.3s ease;
+  margin-left: 0;
+}
+
+/* Saat aktif, Input melebar ke 200px */
+.search-box.active .search-input {
+  width: 200px; 
+  opacity: 1;
+  margin-left: 10px;
+}
+
+/* Warna placeholder (teks samar) */
+.search-input::placeholder {
+  color: #b3b3b3;
+}
+
+/* Tombol X (Close) */
+.close-search {
+  cursor: pointer;
+  color: #b3b3b3;
+  font-size: 14px;
+  margin-left: 8px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.close-search:hover {
+  color: white;
 }
