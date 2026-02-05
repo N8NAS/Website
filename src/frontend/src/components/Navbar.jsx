@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { useAuth } from '../context/AuthContext';
 import { Link, useLocation } from 'react-router-dom'; // 1. Import useLocation
 import '../styles/Navbar.css'; // Pastikan CSS diimport
 
@@ -8,6 +9,7 @@ const Navbar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const inputRef = useRef(null); // Untuk auto-focus saat diklik
+  const { logout } = useAuth();
   const isActive = (path) => {
     return location.pathname === path ? 'active-link' : '';
   };
@@ -28,7 +30,9 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="logo">SANFLIX</div>
+      <Link to="/" className="logo">
+      SANFLIX
+      </Link>
       <div className="navbar-links">
 
         <Link to="/" classame={isActive('/')}>
@@ -92,7 +96,16 @@ const Navbar = () => {
               <a href="/help">Help Center</a>
               <a href="/settings">Settings</a>
               <div className="divider"></div>
-              <a href="/logout" className="logout-btn">Sign out of Netflix</a>
+              <div 
+                className="logout-btn" 
+                onClick={() => {
+                  logout(); // Hapus sesi
+                  setShowDropdown(false); // Tutup menu
+                }}
+                style={{ cursor: 'pointer', padding: '10px 20px', color: '#b3b3b3', fontSize: '13px' }}
+              >
+                Sign out
+              </div>
             </div>
           )}
         </div>
