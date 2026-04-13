@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.models.user import User
-from app.schemas import UserCreate
+from app.schemas import UserCreate, UserLogin
 
 router = APIRouter()
 
@@ -30,3 +30,15 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
         "user_id": new_user.id,
         "email": new_user.email
     }
+
+@router.post("/login")
+def login(user_credentials: UserLogin, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.email == user_credentials.email).first()
+
+    if not user:
+        raise HTTPException(status_code=404, detail="Email tidak terdaftar!")
+        
+    if user.hashed_password != user_credentials.password:
+        raise HTTPException(status_code=401, detail="Email/Password salah!")
+        
+    return {"message": "Login berhasil!", "user": {"email": user.email}}

@@ -5,11 +5,12 @@ import "./styles/global.css";
 // Tambahkan Navigate dan useLocation di sini
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from "./pages/Home";
+import Home from "./pages/Home.jsx";
 import TVShows from './pages/TVShows.jsx'
 import Movies from './pages/Movies.jsx'
 import About from './pages/About.jsx'
-import Settings from './pages/Settings';
+import Settings from './pages/Settings.jsx';
+import Register from './pages/Register.jsx';
 import { AuthProvider, useAuth } from './context/AuthContext';
 
 const ProtectedRoute = ({ children }) => {
@@ -43,6 +44,8 @@ function App() {
           <Routes>
             {/* Halaman Login (Publik) */}
             <Route path="/login" element={<Login />} />
+
+            <Route path="/register" element={<Register />} />
 
             {/* Halaman yang Dilindungi (Harus Login dulu) */}
             <Route path="/" element={

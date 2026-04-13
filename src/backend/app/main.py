@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.core.database import engine, Base
 # Import file model agar terbaca oleh SQLAlchemy
 from app.models import user, movies, watch_history
-from app.api import auth
+from app.api import auth, movies
 
 # PERINTAH AJAIB: Menerjemahkan Python ke MySQL
 Base.metadata.create_all(bind=engine)
