@@ -1,27 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import MovieRow from "../components/MovieRow";
+import "../styles/home.css"; // Pastikan path ini sesuai dengan file Anda
 
-const Home = () => {
+export default function Home() {
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/api/movies/");
+        const data = await response.json();
+        setMovies(data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Gagal mengambil data film:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchMovies();
+  }, []);
+
+  if (loading) {
+    return <div className="home" style={{ padding: "100px", color: "white" }}>Sedang memuat Sanflix...</div>;
+  }
+
+  // Kita ambil film pertama dari database untuk dijadikan Banner Utama di Hero Section
+  const featuredMovie = movies[0];
+
   return (
-    <div style={{ backgroundColor: "#000", minHeight: "100vh", paddingBottom: "50px" }}>
-      
+    <div className="home">
       <Navbar />
       
-      <HeroSection />
-
-      {/* Container row dinaikkan sedikit agar menumpuk background hero */}
-      <div style={{ marginTop: "-100px" }}>
-        <MovieRow title="New Releases" isWide={true} />
-        <MovieRow title="Top 10 This Week" />
-        <MovieRow title="Recently Watched" />
-        <MovieRow title="Top Movies" />
-        <MovieRow title="Top TV Shows" />
-      </div>
-
+      {/* Jika ada film, tampilkan di Hero Section */}
+      {featuredMovie && <HeroSection movie={featuredMovie} />}
+      
+      {/* Tampilkan deretan film di Movie Row */}
+      <MovieRow title="Populer di Sanflix" movies={movies} />
+      
+      {/* Anda bisa memanggil MovieRow berkali-kali untuk baris yang berbeda */}
+      <MovieRow title="Tontonan Seru Lainnya" movies={movies} />
     </div>
   );
-};
-
-export default Home;
+}

@@ -1,5 +1,5 @@
 import "../styles/login.css";
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // 1. Untuk pindah halaman
 import { useAuth } from '../context/AuthContext';
 
@@ -12,7 +12,7 @@ export default function Login() {
 
   // Fungsi Login Sederhana (Tanpa Cek Password)
   const handleLogin = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     setMessage(''); // Bersihkan pesan error sebelumnya
 
     try {
@@ -59,36 +59,36 @@ export default function Login() {
         )}
         {/* Form Input (Isi asal saja) */}
         <form onSubmit={handleLogin}>
-            <div className="form-group">
+          <div className="form-group">
             <label>Email</label>
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
+            <input
+              type="email"
+              placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            </div>
+          </div>
 
-            <div className="form-group">
+          <div className="form-group">
             <label>Password</label>
-            <input 
-              type="password" 
-              placeholder="Enter your password" 
+            <input
+              type="password"
+              placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            </div>
+          </div>
 
-            <div className="forgot">
+          <div className="forgot">
             <a href="#">Forgot password?</a>
-            </div>
+          </div>
 
-            {/* Tombol Sign In */}
-            <button className="signin-btn" type="submit">Sign In</button>
+          {/* Tombol Sign In */}
+          <button className="signin-btn" type="submit">Sign In</button>
         </form>
 
         <p className="signup-text">
-          Don&apos;t have an account? <span onClick={() => navigate("/register")} style={{cursor: "pointer"}}>Sign up</span>
+          Don&apos;t have an account? <span onClick={() => navigate("/register")} style={{ cursor: "pointer" }}>Sign up</span>
         </p>
       </div>
     </div>

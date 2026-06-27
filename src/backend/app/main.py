@@ -21,6 +21,7 @@ app.add_middleware(
 )
 
 app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
+app.include_router(movies.router, prefix="/api/movies", tags=["Movies"])
 @app.get("/")
 def read_root():
     return {"message": "Halo, Backend Sanflix sudah aktif dan terhubung ke Database!"}

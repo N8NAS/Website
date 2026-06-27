@@ -1,10 +1,10 @@
 import "../styles/login.css"; // Menggunakan desain CSS yang sama
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; 
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function Register() {
   const navigate = useNavigate();
-  
+
   // State untuk menangkap ketikan user
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,7 +13,7 @@ export default function Register() {
 
   // Fungsi untuk menembak API FastAPI
   const handleRegister = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     setIsLoading(true);
     setMessage(''); // Reset pesan
 
@@ -35,7 +35,7 @@ export default function Register() {
         setMessage("✅ Registrasi berhasil! Silakan login.");
         // Otomatis pindah ke halaman login setelah 2 detik
         setTimeout(() => {
-          navigate("/login"); 
+          navigate("/login");
         }, 2000);
       } else {
         setMessage("❌ " + (data.detail || "Terjadi kesalahan"));
@@ -57,31 +57,31 @@ export default function Register() {
         {message && <div style={{ color: message.includes('✅') ? 'green' : 'red', marginBottom: '15px', textAlign: 'center' }}>{message}</div>}
 
         <form onSubmit={handleRegister}>
-            <div className="form-group">
-              <label>Email</label>
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-            <div className="form-group">
-              <label>Password</label>
-              <input 
-                type="password" 
-                placeholder="Create a password" 
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Create a password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
 
-            <button className="signin-btn" type="submit" disabled={isLoading}>
-              {isLoading ? "Loading..." : "Sign Up"}
-            </button>
+          <button className="signin-btn" type="submit" disabled={isLoading}>
+            {isLoading ? "Loading..." : "Sign Up"}
+          </button>
         </form>
 
         <p className="signup-text">

@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import "../styles/MovieRow.css";
 
 // Tambahkan prop 'type' untuk badge (Movie/TV)
-const MovieRow = ({ title, isWide = false, type = "Movie" }) => {
+const MovieRow = ({ title, movies =[], isWide = false, type = "Movie" }) => {
   const rowRef = useRef(null);
 
   // Fungsi Scroll Kiri/Kanan
@@ -17,7 +17,7 @@ const MovieRow = ({ title, isWide = false, type = "Movie" }) => {
     }
   };
 
-  const movies = Array.from({ length: 10 }, (_, i) => i + 1);
+  //const movies = Array.from({ length: 10 }, (_, i) => i + 1);
 
   return (
     <div className="row">
@@ -30,7 +30,7 @@ const MovieRow = ({ title, isWide = false, type = "Movie" }) => {
         <div className="row-posters" ref={rowRef}>
           {movies.map((movie) => (
             <div 
-              key={movie} 
+              key={movie.id} 
               className={`poster-card ${isWide ? "card-wide" : "card-portrait"}`}
             >
               {/* Badge Tipe (Movie/TV) */}
@@ -39,10 +39,10 @@ const MovieRow = ({ title, isWide = false, type = "Movie" }) => {
               </span>
 
               {/* Gambar (Gunakan CSS Background) */}
-              <div className="poster-image"></div>
+              <img src={movie.thumbnail_url} alt={movie.title} className="poster-image" />
               
               <div className="poster-info">
-                <h4>Title {movie}</h4>
+                <h4>{movie.title}</h4>
               </div>
             </div>
           ))}
