@@ -1,0 +1,30 @@
+[
+  {
+    "title": "The Potato War",
+    "description": "Legendary Battle Technoblade versus im_a_squid_kid all in the hopes of retaining top one potato farmer in Hypixel Skyblock",
+    "release_year": 2020,
+    "rating": "PG",
+    "genre": "Comedy",
+    "thumbnail_filename": "The Potato War/episode1-thumbnail.png",
+    "episodes": [
+      {
+        "episode_number": 1,
+        "title": "Skyblock: The Great Potato War",
+        "video_filename": "The Potato War/Skyblock_ The Great Potato War.mp4",
+        "thumbnail_filename": "The Potato War/episode1-thumbnail.png"
+      },
+      {
+        "episode_number": 2,
+        "title": "Skyblock: Potato War 2",
+        "video_filename": "The Potato War/Skyblock_ Potato War 2.mp4",
+        "thumbnail_filename": "The Potato War/episode2-thumbnail.png"
+      },
+      {
+        "episode_number": 3,
+        "title": "Skyblock: Potato War 3 (FINALE)",
+        "video_filename": "The Potato War/Skyblock_ Potato War 3 (FINALE).mp4",
+        "thumbnail_filename": "The Potato War/episode3(final)-thumbnail.png"
+      }
+    ]
+  }
+]

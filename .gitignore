@@ -1,0 +1,47 @@
+# 1. Abaikan semua file Video dan Gambar Besar
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.jpg
+*.png
+*.webp
+
+# 2. Abaikan folder Media hasil upload / thumbnail agar tidak memenuhi GitHub
+data/movies/*.mp4
+data/movies/*.mkv
+data/tv shows/**/*.mp4
+data/tv shows/**/*.mkv
+data/thumbnails/
+src/backend/media/
+
+# 3. Abaikan folder system & cache Python / Node.js
+__pycache__/
+*.pyc
+node_modules/
+.env
+
+# 4. Frontend & JS Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 5. Frontend Build Outputs
+dist/
+dist-ssr/
+*.local
+
+# 6. Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

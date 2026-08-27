@@ -1,0 +1,173 @@
+
+.settings-page {
+  background-color: #141414; 
+  min-height: 100vh;
+  width: 100%;
+  color: #333; 
+  padding-top: 100px; 
+  padding-bottom: 50px;
+  box-sizing: border-box;
+}
+
+.settings-container {
+  max-width: 900px; 
+  margin: 0 auto;   
+  padding: 0 20px;
+}
+
+
+.settings-header {
+  border-bottom: 1px solid #333;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.settings-header h1 {
+  color: white;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.member-since {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #555;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+
+.settings-content {
+  color: #999;
+}
+
+
+.settings-section {
+  display: flex;
+  padding: 20px 0;
+}
+
+.section-label {
+  width: 30%; 
+  padding-right: 20px;
+}
+
+.section-label h3 {
+  color: #b3b3b3;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.section-body {
+  width: 70%; 
+}
+
+
+.cancel-btn {
+  background-color: #e6e6e6;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 2px;
+}
+
+.cancel-btn:hover {
+  background-color: #cccccc;
+}
+
+
+.account-row {
+  display: flex;
+  justify-content: space-between; 
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.account-row span {
+  color: white; 
+  font-weight: 500;
+}
+
+.link-text {
+  color: #0073e6; 
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.link-text:hover {
+  text-decoration: underline;
+}
+
+.password-text {
+  color: #b3b3b3 !important; 
+}
+
+
+.divider-thin {
+  height: 1px;
+  background-color: #333;
+  margin: 20px 0;
+}
+
+.divider-thick {
+  height: 1px;
+  background-color: #555; 
+  margin: 0;
+}
+
+
+.plan-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plan-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.badge {
+  background-color: #333;
+  color: #e50914;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 2px;
+  border: 1px solid #e50914;
+}
+
+
+@media (max-width: 768px) {
+  .settings-section {
+    flex-direction: column; 
+  }
+  
+  .section-label, .section-body {
+    width: 100%;
+  }
+  
+  .section-label {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cancel-btn {
+    width: auto; 
+  }
+}

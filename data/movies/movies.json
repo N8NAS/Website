@@ -1,0 +1,20 @@
+[
+  {
+    "title": "The Wolf of Wall Street",
+    "description": "Berdasarkan kisah nyata Jordan Belfort, dari kebangkitan resah ke kejatuhannya di Wall Street yang penuh kontroversi.",
+    "release_year": 2013,
+    "rating": "R",
+    "genre": "Comedy",
+    "video_filename": "The Wolf of Wall Street (2013)-1080p.mp4",
+    "thumbnail_filename": "TheWolfOfWallStreet-Thumbnail.jpg"
+  },
+  {
+    "title": "Deadpool & Wolverine",
+    "description": "Deadpool ditawari tempat di Marvel Cinematic Universe oleh Time Variance Authority, namun malah merekrut warian Wolverine untuk menyelamatkan semestanya dari kepunahan.",
+    "release_year": 2024,
+    "rating": "R",
+    "genre": "Action",
+    "video_filename": "Deadpool & Wolverine 2024.mp4",
+    "thumbnail_filename": "Deadpool&Wolverine-Thumbnail.jpeg"
+  }
+]

@@ -1,0 +1,108 @@
+.row {
+  margin-left: 4%;
+  margin-bottom: 40px;
+  position: relative; 
+  z-index: 20;
+}
+
+.row-title {
+  color: #e5e5e5;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.row-wrapper {
+  position: relative; 
+}
+
+.row-posters {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll; 
+  padding: 10px 0;
+  gap: 10px;
+  scroll-behavior: smooth;
+}
+
+
+.row-posters::-webkit-scrollbar {
+  display: none;
+}
+
+
+.poster-card {
+  position: relative; 
+  flex-shrink: 0;
+  cursor: pointer;
+  background-color: #1e293b;
+  border-radius: 4px;
+  transition: transform 0.3s;
+  overflow: hidden; 
+}
+
+.poster-card:hover {
+  transform: scale(1.05);
+  z-index: 50;
+  box-shadow: 0 0 15px rgba(0,0,0,0.8);
+}
+
+.card-portrait { width: 150px; height: 225px; }
+.card-wide { width: 280px; height: 160px; }
+
+.poster-image {
+  width: 100%;
+  height: 100%;
+  
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+
+.media-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: white;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+
+.badge-movie { background-color: #dc2626; } 
+.badge-tv { background-color: #ea580c; }    
+
+
+.scroll-btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  z-index: 60;
+  opacity: 0; 
+  transition: opacity 0.3s, background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; 
+}
+
+.row-wrapper:hover .scroll-btn {
+  opacity: 1; 
+}
+
+.scroll-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.left { left: -4%; } 
+.right { right: 0; }
