@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/HeroSection.css"; 
+import "../styles/heroSection.css"; 
 
 const HeroSection = ({ movie, onPlayClick }) => {
   if (!movie) return <div className="hero-loading">Loading Banner...</div>;

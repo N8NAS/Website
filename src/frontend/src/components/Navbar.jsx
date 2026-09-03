@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import '../styles/Navbar.css';
+import '../styles/navbar.css';
 
 const Navbar = () => {
   const location = useLocation(); 

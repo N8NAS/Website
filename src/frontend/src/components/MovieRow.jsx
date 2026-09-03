@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "../styles/MovieRow.css";
+import "../styles/movieRow.css";
 
 const MovieRow = ({ title, movies = [], isWide = false, type = "Movie", onMovieClick }) => {
   const rowRef = useRef(null);
