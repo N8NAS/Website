@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 .login-page {
-  
+  font-family: 'Inter', sans-serif;
   position: fixed; 
   top: 0;
   left: 0;
@@ -11,7 +13,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999; 
 }
 
 .login-card {
@@ -52,7 +53,8 @@
   gap: 10px;
   cursor: pointer;
 
-  margin-bottom: 15px;
+  margin-top: 15px;
+  margin-bottom: 0;
 }
 
 .google-login:hover {
@@ -61,25 +63,6 @@
 
 .google-icon {
   font-weight: bold;
-}
-
-
-.divider {
-  display: flex;
-  align-items: center;
-  margin: 22px 0;
-  color: #94a3b8;
-  font-size: 12px;
-}
-
-.divider span {
-  flex: 1;
-  height: 1px;
-  background: #334155;
-}
-
-.divider p {
-  margin: 0 10px;
 }
 
 
@@ -96,11 +79,14 @@
 
 .form-group input {
   width: 100%;
-  padding: 10px;
+  box-sizing: border-box;
+  padding: 18px 12px;
   border-radius: 6px;
   border: 1px solid #334155;
   background: #020617;
   color: white;
+  font-size: 15px;
+  font-weight: 600;
 }
 
 .form-group input:focus {

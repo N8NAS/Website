@@ -39,38 +39,26 @@ export default function Login() {
         <h1 className="login-logo">SANFLIX</h1>
         <p className="login-desc">Sign in to continue watching</p>
 
-        <button className="google-login" onClick={handleLogin}>
-          <span className="google-icon">G</span>
-          Continue with Google
-        </button>
-
-        <div className="divider">
-          <span></span>
-          <p>or</p>
-          <span></span>
-        </div>
-
         {message && (
           <div style={{ color: '#e50914', textAlign: 'center', marginBottom: '15px', backgroundColor: 'rgba(229, 9, 20, 0.1)', padding: '10px', borderRadius: '4px' }}>
             {message}
           </div>
         )}
+        
         <form onSubmit={handleLogin}>
           <div className="form-group">
-            <label>Email</label>
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
           <div className="form-group">
-            <label>Password</label>
             <input
               type="password"
-              placeholder="Enter your password"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -82,6 +70,11 @@ export default function Login() {
 
           <button className="signin-btn" type="submit">Sign In</button>
         </form>
+
+        <button className="google-login" onClick={handleLogin}>
+          <span className="google-icon">G</span>
+          Continue with Google
+        </button>
 
         <p className="signup-text">
           Don&apos;t have an account? <span onClick={() => navigate("/register")} style={{ cursor: "pointer" }}>Sign up</span>
